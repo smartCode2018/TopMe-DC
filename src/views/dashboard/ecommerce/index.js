@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import {Button, Card, CardTitle, CardBody, CardText, CardSubtitle, CardLink, CardImg, Row, Col } from 'reactstrap'
 import { ThemeColors } from '@src/utility/context/ThemeColors'
 import StatsCard from '@src/views/ui-elements/cards/statistics/StatsCard'
@@ -62,7 +63,7 @@ const EcommerceDashboard = () => {
               <CardText>
                 Some quick example text to build on....
               </CardText>
-              <Button.Ripple color='primary' outline>
+              <Button.Ripple tag={Link} to='/pages/story/view/2' color='primary' outline>
                 View Story
               </Button.Ripple>
             </CardBody>

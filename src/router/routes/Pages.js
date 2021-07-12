@@ -79,6 +79,10 @@ const PagesRoutes = [
     path: '/pages/user-profile/verify-kyc',
     component: lazy(() => import('../../views/pages/user-profile/verify-kyc/'))
   },
+  {
+    path: '/pages/story/view/:id',
+    component: lazy(() => import('../../views/pages/story/view/'))
+  },
   //end justice route
   {
     path: '/pages/profile',
