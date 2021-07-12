@@ -51,7 +51,7 @@ const JusticeProfileHead = ({ data }) => {
                   <Edit className='d-block d-md-none' size={14} />
                 <span className='font-weight-bold d-none d-md-block'>Verify Kyc</span>
               </Button.Ripple>
-              <Button tag={Link} to='/pages/user-profile/edit-profile' color='primary'>
+              <Button tag={Link} to='/pages/user-profile/account-settings' color='primary'>
                 <Edit className='d-block d-md-none' size={14} />
                 <span className='font-weight-bold d-none d-md-block'>Edit</span>
               </Button>

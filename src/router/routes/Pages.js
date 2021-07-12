@@ -83,6 +83,10 @@ const PagesRoutes = [
     path: '/pages/story/view/:id',
     component: lazy(() => import('../../views/pages/story/view/'))
   },
+  {
+    path: '/pages/user-profile/account-settings/',
+    component: lazy(() => import('../../views/pages/user-profile/account-settings/'))
+  },
   //end justice route
   {
     path: '/pages/profile',
