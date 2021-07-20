@@ -8,12 +8,21 @@ import DashboardRoutes from './Dashboards'
 import UiElementRoutes from './UiElements'
 import ExtensionsRoutes from './Extensions'
 import PageLayoutsRoutes from './PageLayouts'
+import { isUserLoggedIn, getUserData } from '@utils'
 
 // ** Document title
 const TemplateTitle = '%s - Vuexy React Admin Template'
 
 // ** Default Route
-const DefaultRoute = '/dashboard'
+let DefaultRoute
+if (isUserLoggedIn()) {
+  const user = getUserData()
+  if (user.role === 'admin') {
+    DefaultRoute = '/admin/dashboard'
+  } else {
+    DefaultRoute = '/dashboard'
+  }
+}
 
 // ** Merge Routes
 const Routes = [

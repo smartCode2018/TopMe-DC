@@ -69,23 +69,43 @@ const PagesRoutes = [
   //justice route
   {
     path: '/pages/user-profile/create-an-impact',
-    component: lazy(() => import('../../views/pages/user-profile/create-an-impact/CreateImpact'))
+    component: lazy(() => import('../../views/pages/user-profile/create-an-impact/CreateImpact')),
+    meta:{
+      action:'read',
+      resource:'Auth'
+    }
   },
   {
     path: '/pages/user-profile/edit-profile',
-    component: lazy(() => import('../../views/pages/user-profile/edit-profile/'))
+    component: lazy(() => import('../../views/pages/user-profile/edit-profile/')),
+    meta:{
+      action:'read',
+      resource:'Auth'
+    }
   },
   {
     path: '/pages/user-profile/verify-kyc',
-    component: lazy(() => import('../../views/pages/user-profile/verify-kyc/'))
+    component: lazy(() => import('../../views/pages/user-profile/verify-kyc/')),
+    meta:{
+      action:'read',
+      resource:'User'
+    }
   },
   {
     path: '/pages/story/view/:id',
-    component: lazy(() => import('../../views/pages/story/view/'))
+    component: lazy(() => import('../../views/pages/story/view/')),
+    meta:{
+      action:'read',
+      resource:'Auth'
+    }
   },
   {
     path: '/pages/user-profile/account-settings/',
-    component: lazy(() => import('../../views/pages/user-profile/account-settings/'))
+    component: lazy(() => import('../../views/pages/user-profile/account-settings/')),
+    meta:{
+      action:'read',
+      resource:'Auth'
+    }
   },
   //end justice route
   {

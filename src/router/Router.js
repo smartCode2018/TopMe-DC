@@ -2,7 +2,7 @@
 import { Suspense, useContext, lazy } from 'react'
 
 // ** Utils
-import { isUserLoggedIn } from '@utils'
+import { isUserLoggedIn, getUserData } from '@utils'
 import { useLayout } from '@hooks/useLayout'
 import { AbilityContext } from '@src/utility/context/Can'
 import { useRouterTransition } from '@hooks/useRouterTransition'
@@ -89,7 +89,13 @@ const Router = () => {
       return <Redirect to='/login' />
     } else if (route.meta && route.meta.authRoute && isUserLoggedIn()) {
       // ** If route has meta and authRole and user is Logged in then redirect user to home page (DefaultRoute)
-      return <Redirect to='/' />
+      const user = (getUserData())
+      if (user.role === 'admin') {
+        return <Redirect to='/admin/dashboard' />
+      } else {
+        return <Redirect to='/dashboard' />
+      }
+      
     } else if (isUserLoggedIn() && !ability.can(action || 'read', resource)) {
       // ** If user is Logged in and doesn't have ability to visit the page redirect the user to Not Authorized
       return <Redirect to='/misc/not-authorized' />

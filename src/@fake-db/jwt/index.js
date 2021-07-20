@@ -13,8 +13,12 @@ const data = {
       role: 'admin',
       ability: [
         {
-          action: 'manage',
-          subject: 'all'
+          action: 'read',
+          subject: 'Admin'
+        },
+        {
+          action: 'read',
+          subject: 'Auth'
         }
       ],
       extras: {
@@ -37,6 +41,10 @@ const data = {
         {
           action: 'read',
           subject: 'Auth'
+        },
+        {
+          action: 'read',
+          subject: 'User'
         }
       ],
       extras: {
