@@ -1,7 +1,7 @@
 import Chart from 'react-apexcharts'
 import { Card, CardTitle, CardText, CardBody, Row, Col } from 'reactstrap'
 
-const Earnings = ({ success }) => {
+const Earnings = ({ success, styles }) => {
   const options = {
     chart: {
       toolbar: {
@@ -93,7 +93,7 @@ const Earnings = ({ success }) => {
           <Col xs='6'>
             <CardTitle className='mb-1'>Total Amount Raised</CardTitle>
             {/* <div className='font-small-2'>This Month</div> */}
-            <h3 className='mb-1'><strong>₦23,600,000</strong></h3>
+            <h3 className='mb-1'><strong style={styles}>₦23,600,000</strong></h3>
             <CardText className='text-muted font-small-2'>
               <span className='font-weight-bolder'>68.2%</span>
               <span> more Impact than last month.</span>

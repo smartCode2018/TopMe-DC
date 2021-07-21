@@ -3,7 +3,7 @@ import { AlignJustify, Rss, Info, Image, Users, Edit } from 'react-feather'
 import { Link } from 'react-router-dom'
 import { Card, CardImg, Collapse, Navbar, Row, Nav, NavItem, NavLink, Button, Badge } from 'reactstrap'
 
-const JusticeProfileHead = ({ data }) => {
+const JusticeProfileHead = ({ data, verified = false, isAdmin = false, status = 'inactive' }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggle = () => setIsOpen(!isOpen)
@@ -38,23 +38,57 @@ const JusticeProfileHead = ({ data }) => {
                 </NavItem>
                 <NavItem>
                   <NavLink className='font-weight-bold'>
-                    <Badge color='warning' className='badge-glow'>
-                        Account Not Verified
-                    </Badge>
+                    {verified !== true ? (
+                        <Badge color='warning' className='badge-glow'>
+                          Account Not Verified
+                        </Badge>
+                      ) : (
+                        <Badge color='success' className='badge-glow'>
+                            Account Verified
+                        </Badge>
+                      )
+                    }
                     {/* <Info className='d-block d-md-none' size={14} /> */}
                   </NavLink>
                 </NavItem>
                
               </Nav>
               <Row>
-              <Button.Ripple tag={Link} to='/pages/user-profile/verify-kyc' className='mr-1' color='outline-info'>
-                  <Edit className='d-block d-md-none' size={14} />
-                <span className='font-weight-bold d-none d-md-block'>Verify Kyc</span>
-              </Button.Ripple>
-              <Button tag={Link} to='/pages/user-profile/account-settings' color='primary'>
-                <Edit className='d-block d-md-none' size={14} />
-                <span className='font-weight-bold d-none d-md-block'>Edit</span>
-              </Button>
+                {!isAdmin ? (
+                  <>
+                    <Button.Ripple tag={Link} to='/pages/user-profile/verify-kyc' className='mr-1' color='outline-info'>
+                        <Edit className='d-block d-md-none' size={14} />
+                      <span className='font-weight-bold d-none d-md-block'>Verify Kyc</span>
+                    </Button.Ripple>
+                    <Button tag={Link} to='/pages/user-profile/account-settings' color='primary'>
+                      <Edit className='d-block d-md-none' size={14} />
+                      <span className='font-weight-bold d-none d-md-block'>Edit</span>
+                    </Button>
+                  </>
+                ) : (
+                    <>
+                      {
+                        status === 'active' && verified === true ? (
+                          <Button tag={Link} to='/pages/user-profile/account-settings' color='danger'>
+                            <Edit className='d-block d-md-none' size={14} />
+                            <span className='font-weight-bold d-none d-md-block'>Deactivate Account</span>
+                          </Button>
+                        ) : (
+                          <>
+                            <Button.Ripple tag={Link} to='/pages/user-profile/verify-kyc' className='mr-1' color='outline-info'>
+                                <Edit className='d-block d-md-none' size={14} />
+                              <span className='font-weight-bold d-none d-md-block'>Verify Kyc</span>
+                            </Button.Ripple>
+                            <Button tag={Link} to='/pages/user-profile/account-settings' color='primary'>
+                              <Edit className='d-block d-md-none' size={14} />
+                              <span className='font-weight-bold d-none d-md-block'>Activate Account</span>
+                            </Button>
+                          </>
+                        )
+                      }
+                    </>
+                    
+                )}
               </Row>
              
             </div>

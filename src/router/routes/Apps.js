@@ -74,25 +74,37 @@ const AppRoutes = [
   },
   {
     path: '/apps/invoice/list',
-    component: lazy(() => import('../../views/apps/invoice/list'))
+    component: lazy(() => import('../../views/apps/invoice/list')),
+    meta:{
+      action:'read',
+      resource:'Admin'
+    }
   },
   {
     path: '/apps/invoice/preview/:id',
     component: lazy(() => import('../../views/apps/invoice/preview')),
     meta: {
-      navLink: '/apps/invoice/preview'
+      navLink: '/apps/invoice/preview',
+      action:'read',
+      resource:'Admin'
     }
   },
   {
     path: '/apps/invoice/preview',
     exact: true,
-    component: () => <Redirect to='/apps/invoice/preview/4987' />
+    component: () => <Redirect to='/apps/invoice/preview/4987' />,
+    meta:{
+      action:'read',
+      resource:'Admin'
+    }
   },
   {
     path: '/apps/invoice/edit/:id',
     component: lazy(() => import('../../views/apps/invoice/edit')),
     meta: {
-      navLink: '/apps/invoice/edit'
+      navLink: '/apps/invoice/edit',
+      action:'read',
+      resource:'Admin'
     }
   },
   {
@@ -105,9 +117,22 @@ const AppRoutes = [
     component: lazy(() => import('../../views/apps/invoice/add'))
   },
   {
+    path: '/dashboard/admin/projects/list',
+    component: lazy(() => import('../../views/dashboard/admin/projects/list')),
+    meta:{
+      action:'read',
+      resource:'Admin'
+    }
+  },
+
+  {
     path: '/apps/invoice/print',
     layout: 'BlankLayout',
-    component: lazy(() => import('../../views/apps/invoice/print'))
+    component: lazy(() => import('../../views/apps/invoice/print')),
+    meta:{
+      action:'read',
+      resource:'Admin'
+    }
   },
   {
     path: '/apps/ecommerce/shop',
@@ -170,10 +195,10 @@ const AppRoutes = [
   },
   {
     path: '/apps/user/view/:id',
-    component: lazy(() => import('../../views/apps/user/view')),
+    component: lazy(() => import('../../views/apps/user/view/JusticeView')),
     meta: {
       navLink: '/apps/user/view',
-      action:'read',
+      action:'read', 
       resource:'Admin'
     }
   }

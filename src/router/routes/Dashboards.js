@@ -17,7 +17,7 @@ const DashboardRoutes = [
     exact: true,
     meta:{
       action:'read',
-      resource:'Auth'
+      resource:'User'
     }
   }
 ]

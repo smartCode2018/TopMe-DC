@@ -50,7 +50,7 @@ const Login = props => {
 
   const illustration = skin === 'dark' ? 'topme2.png' : 'topme1.png',
     source = require(`@src/assets/images/pages/${illustration}`).default
-  const sourceBanner = require(`@src/assets/images/pages/topme/banner-main1.jpg`).default
+  const sourceBanner = require(`@src/assets/images/pages/topme/bgg2.jpeg`).default
 
   const handleSubmit = (event, errors) => {
     if (errors && !errors.length) {
@@ -79,7 +79,7 @@ const Login = props => {
 
   return (
     <div className='auth-wrapper auth-v2'>
-      <Row className='auth-inner m-0' style={{backgroundImage:`url(${sourceBanner})`}}>
+      <Row className='auth-inner m-0' style={{backgroundImage:`url(${sourceBanner})`, backgroundRepeat : 'no-repeat', backgroundPosition : 'left', backgroundSize:'1050px 700px'}}>
         <Link className='brand-logo' to='/' onClick={e => e.preventDefault()}>
           <img className='img-fluid' height={100} width={100} src={source} alt='Login V2' />
           {/* <h2 className='brand-text text-primary ml-1'>TopMe</h2> */}
@@ -96,13 +96,13 @@ const Login = props => {
               Welcome to TopMe!
             </CardTitle>
             <CardText className='mb-2'>Please sign-in to your account</CardText>
-            {/* <Alert color='primary'>
+            <Alert color='primary'>
               <div className='alert-body font-small-2'>
-                <p>
+                {/* <p>
                   <small className='mr-50'>
                     <span className='font-weight-bold'>Admin:</span> admin@demo.com | admin
                   </small>
-                </p>
+                </p> */}
                 <p>
                   <small className='mr-50'>
                     <span className='font-weight-bold'>Client:</span> client@demo.com | client
@@ -119,7 +119,7 @@ const Login = props => {
                 This is just for ACL demo purpose.
               </UncontrolledTooltip>
             </Alert>
-             */}
+            
             <AvForm className='auth-login-form mt-2' onSubmit={handleSubmit}>
               <FormGroup>
                 <Label className='form-label' for='login-email'>
